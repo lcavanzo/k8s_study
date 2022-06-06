@@ -1,0 +1,21 @@
+# Resource Request: minimun requires resources
+## Resources are requested per container, not per Pod. The total resources requested by the
+## Pod is the sum of all resources requested by all containers in the Pod because the
+## different containers often have very different CPU requirements
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kuard
+spec:
+  containers:
+    - image: gcr.io/kuar-demo/kuard-amd64:blue
+      name: kuard
+      resources:
+        requests:
+          cpu: '500m'
+          memory: '128Mi'
+      ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP

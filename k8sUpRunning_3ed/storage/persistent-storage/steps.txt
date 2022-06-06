@@ -1,0 +1,4 @@
+create volume
+create volume claim
+create pod using the volume claim
+create service to expose the pod

@@ -1,0 +1,16 @@
+apiVersion: batch/v1j
+kind: CronJob
+metadata:
+  name: example-cron
+spec:
+  # Run every firth hour
+  schedule: "0 */5 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: batch-job
+            image: my-batch-image
+          restartPolicy: OnFailure
+

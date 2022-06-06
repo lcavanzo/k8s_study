@@ -1,0 +1,5 @@
+once the StatefulSet is created, we also need to create a “headless” service
+to manage the DNS entries for the StatefulSet. In Kubernetes a service is
+called “headless” if it doesn’t have a cluster virtual IP address. Since with
+StatefulSets each Pod has a unique identity, it doesn’t really make sense to
+have a load-balancing IP address for the replicated service.
